@@ -77,6 +77,7 @@ $("#save").on("click", function(){
         //送信したらクリアする
         $("#input-file").val("");
         $("#input-description").val("");
+        $("#preview").html("");
 
         // memoオブジェクト
         const memo = {'count':count, 'description': description, 'file':base64Image, 'date': dateText};
