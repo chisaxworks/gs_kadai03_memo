@@ -33,6 +33,7 @@ main {
     margin: 0 auto;
     width: 80%;
     text-align: start;
+    font-size: 22px;
 }
 
 .input-file-wrap {
@@ -56,7 +57,6 @@ main {
     display: block;
     padding: 20px;
     width: 100%;
-    font-size: 20px;
 }
 
 #input-file::file-selector-button {
@@ -248,6 +248,7 @@ footer {
 
     .input-wrap {
         width: 100%;
+        font-size: 16px;
     }
 
     .input-file-wrap {
@@ -265,7 +266,6 @@ footer {
 
     #input-file{
         padding: 15px;
-        font-size: 16px;
     }
 
     .main-btn-wrap {
