@@ -250,6 +250,24 @@ footer {
         width: 100%;
     }
 
+    .input-file-wrap {
+        flex-direction: column;
+    }
+
+    #preview{
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    #preview img{
+        padding: 0px 20px 10px;
+    }
+
+    #input-file{
+        padding: 15px;
+        font-size: 16px;
+    }
+
     .main-btn-wrap {
         margin: 20px auto 30px;
     }
@@ -275,16 +293,16 @@ footer {
     }
 
     .item-description {
-        font-size: 14px;
+        font-size: 16px;
         margin-bottom: 10px;
     }
 
     .item-date {
-        font-size: 10px;
+        font-size: 11px;
     }
 
     .delete-btn {
-        font-size: 12px;
+        font-size: 13px;
         width: 50%;
         margin: 0 auto;
     }
