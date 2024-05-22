@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+
+    <title>Image Memo</title>
+    <link rel="stylesheet" href="css/reset2.css">
+    <link rel="stylesheet" href="css/style_img.css">
+
+    <!-- googleフォント -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Kiwi+Maru:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" href="img/favicon.ico">
+
+</head>
+<body>
+    <header>
+        <div class="inner">
+            <h1>Image Memo</h1>
+        </div>
+    </header>
+    <main>
+        <div class="inner">
+            <h2 class="title">Let's upload your image file!</h2>
+            <div class="input-wrap">
+                <div class="input-file-wrap">
+                    <input type="file" name="file" id="input-file" accept="image/png, image/jpeg, image/heic">
+                    <div id="preview"></div>
+                </div>
+                <input type="text" id="input-description" placeholder="ファイルの簡単な説明を入力してください">
+            </div>
+            <div class="main-btn-wrap">
+                <button id="save" class="main-btn">save</button>
+            </div>
+    
+            <div class="storage-wrap">
+                <h2 class="title">List of Stored Files</h2>
+                <div id="storage">
+                    <!-- ここにデータが入る -->
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2024 CHISAXWORKS
+    </footer>
+
+    <!-- pagetop -->
+    <div class="pagetop">
+        <a href="#"></a>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="js/script_img.js"></script>
+</body>
+</html>

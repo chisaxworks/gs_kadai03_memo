@@ -1,0 +1,299 @@
+body {
+    font-family: "Kiwi Maru", "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Arial", "Yu Gothic", "Meiryo", sans-serif;
+    background-color: #28385E;
+    color: #ffffff;
+}
+
+.inner {
+    max-width: 1200px;
+    margin: 0px auto;
+    padding: 0px 25px;
+    text-align: center;
+}
+
+header {
+    padding: 20px;
+    background-color: #516C8D;
+    font-size: 36px;
+    font-weight: 500;
+}
+
+main {
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.title {
+    padding: 30px 0;
+    letter-spacing: 0.05em;
+}
+
+.input-wrap {
+    color: #28385E;
+    margin: 0 auto;
+    width: 80%;
+    text-align: start;
+}
+
+.input-file-wrap {
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#preview{
+    width: 40%;
+}
+
+#preview img{
+    max-width: 100%;
+    padding: 10px 20px;
+}
+
+#input-file {
+    background-color: #ffffff;
+    display: block;
+    padding: 20px;
+    width: 100%;
+    font-size: 20px;
+}
+
+#input-file::file-selector-button {
+    color: #28385E;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 15px;
+}
+
+#input-description {
+    background-color: #ffffff;
+    padding: 20px;
+    width: 100%;
+}
+
+.main-btn-wrap {
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+}
+
+.main-btn {
+    width: 200px;
+    height: 50px;
+    background-color: darkcyan;
+}
+
+.main-btn:hover {
+    background-color: cadetblue;
+}
+
+.storage-wrap {
+    background-color: #516C8D;
+}
+
+#storage {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    padding: 30px;
+}
+
+.item {
+    display: flex;
+    column-gap: 20px;
+    justify-content: center;
+}
+
+.item-data-wrap {
+    border: 1px solid #ffffff;
+    width: 80%;
+    padding: 20px 30px;
+}
+
+.item-description {
+    font-size: 18px;
+    text-align: start;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.item-file img{
+    max-width: 100%;
+}
+
+.item-date {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: end;
+}
+
+.item-btn-wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 20px;
+}
+
+.delete-btn {
+    padding: 10px;
+    background-color: #28385E;
+    font-size: 16px;
+}
+
+.delete-btn:hover {
+    background-color: #6A91C1;
+}
+
+footer {
+    font-size: 12px;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+    background-color: #516C8D;
+    color: #ffffff;
+    margin-top: 50px;
+}
+
+/* ----- PageTop部分 -----*/
+
+.pagetop {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    z-index: 3;
+    opacity: 0;
+    transform: translateY(100px);
+}
+  
+.pagetop a{
+    width: 30px;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: block;
+    transition: all 0.3s;
+    position: relative;
+}
+  
+.pagetop a::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 12px;
+    left: 10px;
+    transform: rotate(-45deg);
+    border-top: 2px solid #28385E;
+    border-right: 2px solid #28385E;
+    border-radius: 2px;
+}
+  
+.pagetop a:hover{
+    background-color: #28385E;
+}
+
+.pagetop a:hover::before {
+    border-color: #ffffff;
+}
+
+/*　上に上がる動き　*/
+.pagetop.pt-up{
+    animation: ptupAnime 1.0s forwards;
+}
+@keyframes ptupAnime{
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*　下に下がる動き　*/
+.pagetop.pt-down{
+    animation: ptdownAnime 1.0s forwards;
+}
+@keyframes ptdownAnime{
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(50px);
+    }
+}
+
+/* --------------------
+    for SP size 
+-------------------- */
+@media screen and (max-width: 768px){
+
+    header {
+        padding: 12px;
+        font-size: 24px;
+    }
+
+    main {
+        font-size: 18px;
+    }
+
+    .title {
+        padding: 20px 0;
+    }
+
+    .input-wrap {
+        width: 100%;
+    }
+
+    .main-btn-wrap {
+        margin: 20px auto 30px;
+    }
+
+    .main-btn {
+        width: 50%;
+        height: 40px;
+    }
+
+    #storage {
+        padding: 0 20px 20px;
+    }
+
+    .item {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+    }
+
+    .item-data-wrap {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .item-description {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .item-date {
+        font-size: 10px;
+    }
+
+    .delete-btn {
+        font-size: 12px;
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    footer {
+        font-size: 10px;
+        height: 30px;
+        line-height: 30px;
+        margin-top: 30px;
+    }
+
+}
