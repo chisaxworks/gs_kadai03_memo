@@ -122,11 +122,17 @@ $("#save").on("click", function(){
 // クリックしたものだけ削除
 $("#storage").on("click", ".delete-btn", function(){
         
+    if(!confirm("削除してもよろしいですか？")){
+        return false;
+    }else{
+
         let deleteId = $(this).data('id');
         console.log(deleteId,"deleteId取れてるか");
-
+    
         $(`#${deleteId}`).remove();
         localStorage.removeItem(deleteId);
+
+    }
 
 });
 
