@@ -73,7 +73,7 @@ main {
 }
 
 .main-btn-wrap {
-    margin: 50px auto;
+    margin: 30px auto 50px;
     display: flex;
     justify-content: center;
     column-gap: 50px;
@@ -139,7 +139,7 @@ main {
 .delete-btn {
     padding: 10px;
     background-color: #28385E;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .delete-btn:hover {
@@ -268,12 +268,17 @@ footer {
         padding: 15px;
     }
 
+    #input-description {
+        padding: 15px 20px;
+    }
+
     .main-btn-wrap {
         margin: 20px auto 30px;
+        column-gap: 20px;
     }
 
     .main-btn {
-        width: 50%;
+        width: 40%;
         height: 40px;
     }
 
@@ -302,13 +307,13 @@ footer {
     }
 
     .delete-btn {
-        font-size: 13px;
-        width: 50%;
+        font-size: 12px;
+        width: 30%;
         margin: 0 auto;
     }
 
     footer {
-        font-size: 10px;
+        font-size: 11px;
         height: 30px;
         line-height: 30px;
         margin-top: 30px;

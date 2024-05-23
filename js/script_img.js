@@ -31,7 +31,7 @@ function displayMemo(count, description, file, date) {
             <p class="item-date">${date}</p>
         </div>
         <div class="item-btn-wrap">
-            <button id="delete" class="delete-btn" data-id="${count}">削除</button>
+            <button id="delete" class="delete-btn" data-id="${count}">delete</button>
         </div>
     </div>
     `;
@@ -74,7 +74,7 @@ $("#save").on("click", function(){
         //HTMLに格納（リロードするまでは追加順に並ぶのでソートは不要）
         displayMemo(count, description, base64Image, dateText);
 
-        //送信したらクリアする
+        //保存したらクリアする
         $("#input-file").val("");
         $("#input-description").val("");
         $("#preview").html("");
@@ -89,6 +89,15 @@ $("#save").on("click", function(){
         };
         reader.readAsDataURL(file);
     }
+});
+
+// Resetボタンクリック
+$("#reset").on("click", function(){
+
+    // 保存したらクリアと同じ
+    $("#input-file").val("");
+    $("#input-description").val("");
+    $("#preview").html("");
 });
 
 //リロード時の動き
