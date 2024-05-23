@@ -52,3 +52,6 @@
   - FileReader関連
     - https://ja.javascript.info/file
     - https://okinawanpizza.hatenablog.com/entry/2020/12/29/120807#google_vignette
+
+- この画像メモを作る前にテキストメモを作ったので共有します。
+  - https://github.com/chisaxworks/gs_kadai03_memo_1st
