@@ -91,8 +91,8 @@ $("#save").on("click", function(){
     }
 });
 
-// Resetボタンクリック
-$("#reset").on("click", function(){
+// Clearボタンクリック
+$("#clear").on("click", function(){
 
     // 保存したらクリアと同じ
     $("#input-file").val("");
