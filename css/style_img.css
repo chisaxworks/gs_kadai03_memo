@@ -100,6 +100,13 @@ main {
     padding: 0 30px 30px;
 }
 
+.nofile {
+    display: none;
+    border: 1px solid #ffffff;
+    padding: 10px 30px;
+    margin: 0 auto;
+}
+
 .item {
     display: flex;
     column-gap: 20px;

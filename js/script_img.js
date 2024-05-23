@@ -71,7 +71,8 @@ $("#save").on("click", function(){
             const base64Image = event.target.result;
             console.log(base64Image,"base64Imageの中身");
 
-        //HTMLに格納（リロードするまでは追加順に並ぶのでソートは不要）
+        //HTMLに格納（リロードするまでは追加順に並ぶのでソートは不要・nofileがある場合は非表示）
+        $(".nofile").css("display","none");
         displayMemo(count, description, base64Image, dateText);
 
         //保存したらクリアする
@@ -100,11 +101,15 @@ $("#clear").on("click", function(){
     $("#preview").html("");
 });
 
-//リロード時の動き
+//リロード時の動き（並び替え）
 
-    // まず並び替えをする
-    // Step1:全てのキーを取得
-    const keys = Object.keys(localStorage);
+// Step1:全てのキーを取得
+const keys = Object.keys(localStorage);
+
+// localStorageに値がなければnofileを出す
+if (keys.length === 0) {
+    $(".nofile").css("display","block");
+}else{
 
     // Step2;キーを名前順に並び替え
     keys.sort();
@@ -114,7 +119,8 @@ $("#clear").on("click", function(){
         let memoData = JSON.parse(localStorage.getItem(key));
         console.log(memoData,"メモデータ確認");
 
-        //HTMLに格納
+        //HTMLに格納（nofileがある場合は非表示）
+        $(".nofile").css("display","none");
         displayMemo(memoData.count, memoData.description, memoData.file, memoData.date);
 
         // countの一番大きい数字を取りたい
@@ -126,7 +132,7 @@ $("#clear").on("click", function(){
             console.log(count,"count更新後の数値");
         }
     });
-
+}
 
 // クリックしたものだけ削除
 $("#storage").on("click", ".delete-btn", function(){
@@ -140,6 +146,13 @@ $("#storage").on("click", ".delete-btn", function(){
     
         $(`#${deleteId}`).remove();
         localStorage.removeItem(deleteId);
+
+        // localStorageにデータがなくなっていたらnofileを出す
+        const keys = Object.keys(localStorage);
+
+        if (keys.length === 0) {
+            $(".nofile").css("display","block");
+        }
 
     }
 
