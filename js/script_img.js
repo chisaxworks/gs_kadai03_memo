@@ -39,6 +39,18 @@ function displayMemo(count, description, file, date) {
     $("#storage").prepend(html);
 }
 
+// ファイルサイズ小さくする関数
+function test(img) {
+    const canvas = document.createElement('canvas');
+    const max_width = 600; // 縮小後の最大幅
+    const scaleSize = max_width / img.width;
+    canvas.width = max_width;
+    canvas.height = img.height * scaleSize;
+    const ctx = canvas.getContext('2d');
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    return base64Image = canvas.toDataURL('image/png'); //キャプチャをメインに使う予定なのでpng設定
+}
+
 // Saveボタンクリック
 $("#save").on("click", function(){
 
@@ -68,24 +80,48 @@ $("#save").on("click", function(){
         // FileReader
         const reader = new FileReader();
         reader.onload = function(event) {
-            const base64Image = event.target.result;
+
+            //ファイルサイズを見て、サイズが大きいときファイルサイズを小さくする関数を呼び出す
+            let filesize = file.size;
+            console.log(filesize,"ファイルサイズ")
+            
+            if (filesize > 1000000){
+                //サイズが1MBより大きい：小さくする関数を呼び出してdata:の値を戻す
+                const img = new Image();
+                img.src = event.target.result;
+                img.onload = test(img);
+            }else{
+                // 1MB以下：fileReaderの結果をそのまま入れる
+                base64Image = event.target.result;
+            }
+
             console.log(base64Image,"base64Imageの中身");
 
-        //HTMLに格納（リロードするまでは追加順に並ぶのでソートは不要・nofileがある場合は非表示）
-        $(".nofile").css("display","none");
-        displayMemo(count, description, base64Image, dateText);
+            //以下の作業（オブジェクトに格納〜保存したらクリア）はエラーハンドリングにまとめる
+            try {
+                // memoオブジェクト
+                const memo = {'count':count, 'description': description, 'file':base64Image, 'date': dateText};
+                // console.log(memo,"memo");
 
-        //保存したらクリアする
-        $("#input-file").val("");
-        $("#input-description").val("");
-        $("#preview").html("");
+                // memoオブジェクトをlocalStrageに格納（エラーハンドリングも追加）
+                localStorage.setItem(count , JSON.stringify(memo)); 
 
-        // memoオブジェクト
-        const memo = {'count':count, 'description': description, 'file':base64Image, 'date': dateText};
-        console.log(memo,"memo");
+                //HTMLに格納（リロードするまでは追加順に並ぶのでソートは不要・nofileがある場合は非表示）
+                $(".nofile").css("display","none");
+                displayMemo(count, description, base64Image, dateText);
 
-        // memoオブジェクトをlocalStrageに格納
-        localStorage.setItem(count , JSON.stringify(memo)); 
+                //保存したらクリアする
+                $("#input-file").val("");
+                $("#input-description").val("");
+                $("#preview").html("");
+
+            } catch (e) {
+                if (e.name === 'QuotaExceededError'){
+                    alert('容量を超えたため保存できません。保存したい場合は先に他のファイルをを削除してください。');
+                }else{
+                    alert('不明なエラーが発生しました'+ e.message);
+                }
+            }
 
         };
         reader.readAsDataURL(file);
