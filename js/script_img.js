@@ -40,7 +40,7 @@ function displayMemo(count, description, file, date) {
 }
 
 // ファイルサイズ小さくする関数
-function test(img) {
+function resizeFile(img) {
     const canvas = document.createElement('canvas');
     const max_width = 600; // 縮小後の最大幅
     const scaleSize = max_width / img.width;
@@ -89,7 +89,7 @@ $("#save").on("click", function(){
                 //サイズが1MBより大きい：小さくする関数を呼び出してdata:の値を戻す
                 const img = new Image();
                 img.src = event.target.result;
-                img.onload = test(img);
+                img.onload = resizeFile(img);
             }else{
                 // 1MB以下：fileReaderの結果をそのまま入れる
                 base64Image = event.target.result;
